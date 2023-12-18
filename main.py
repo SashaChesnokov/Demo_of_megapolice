@@ -1,11 +1,5 @@
 import csv
 
-student_data = [
-    {"name": "Андрей", "surname": "Попов", "grade": 5, "project_id": "1"},
-    {"name": "Степан", "surname": "Васильев", "grade": None, "project_id": "2"},
-    {"name": "Владимир", "surname": "Хадаров", "grade": 4, "project_id": "3"}
-]
-
 def calculate_average_grade(grades_list):
     '''
     Вычисление средней оценки из списка оценок.
@@ -42,3 +36,30 @@ def process_student_data(student_data):
     
     return student_data
 
+def save_to_csv(data, file_name):
+    '''
+    Запись данных в CSV формате в файл.
+    
+    Args:
+    data (list of dict): Список словарей с данными студентов.
+    file_name (str): Имя Файла для сохранения.
+    '''
+
+    with open(file_name, mode='w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=data[0].keys())
+        writer.writeheader()
+        writer.writerows(data)
+
+def main():
+    students_data = [
+    {"name": "Андрей", "surname": "Попов", "grade": 5, "project_id": "1"},
+    {"name": "Степан", "surname": "Васильев", "grade": None, "project_id": "2"},
+    {"name": "Владимир", "surname": "Хадаров", "grade": 4, "project_id": "3"}
+    ]
+    clear_data = process_student_data(students_data)
+    save_to_csv(students_data, 'student_new.csv')
+    for student in clear_data:
+        if student['name'] == 'Владимир' and student['surname'] == 'Хадаров':
+            print(f"Ты получил {student['grade']}, за проект = {student['project_id']}")
+
+main()
