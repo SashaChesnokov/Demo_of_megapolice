@@ -45,7 +45,7 @@ def save_to_csv(data, file_name):
     file_name (str): Имя Файла для сохранения.
     '''
 
-    with open(file_name, mode='w', newline='') as file:
+    with open(file_name, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=data[0].keys())
         writer.writeheader()
         writer.writerows(data)
