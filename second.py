@@ -41,15 +41,28 @@ def insertion_sort(student_data, key):
         
     return student_data[::-1]
 
+def print_top_students(student_data, count_of_students):
+    '''
+    Алгоритм сортировки вставками.
+    
+    Args:
+        student_data (list of dict): Список словарей с данными студентов.
+        count_of_students (int): Количество студентов, которых нужно вывести
+    '''
+
+    place = 1
+    for student in student_data[:count_of_students]:
+        print(f"{place} место {student['name'][0]}.{student['surname']}")
+        place += 1
+
+
+
+
 
 def main():
     student_data_from_csv = read_csv('student_new.csv')
     sorted_student_data = insertion_sort(student_data_from_csv, 'grade')
-    
-    place = 1
-    for student in sorted_student_data[:3]:
-        print(f"{place} место {student['name'][0]}.{student['surname']}")
-        place += 1
+    print_top_students(sorted_student_data, 3)
 
 main()
 
