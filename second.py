@@ -44,7 +44,12 @@ def insertion_sort(student_data, key):
 
 def main():
     student_data_from_csv = read_csv('student_new.csv')
-    print(insertion_sort(student_data_from_csv, 'grade'))
+    sorted_student_data = insertion_sort(student_data_from_csv, 'grade')
+    
+    place = 1
+    for student in sorted_student_data[:3]:
+        print(f"{place} место {student['name'][0]}.{student['surname']}")
+        place += 1
 
 main()
 
