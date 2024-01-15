@@ -18,20 +18,6 @@ def read_csv(file_path):
 
     return student_data
 
-def save_to_csv(data, file_name):
-    '''
-    Запись данных в CSV формате в файл.
-    
-    Args:
-    data (list of dict): Список словарей с данными студентов.
-    file_name (str): Имя Файла для сохранения.
-    '''
-
-    with open(file_name, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.DictWriter(file, fieldnames=data[0].keys())
-        writer.writeheader()
-        writer.writerows(data)
-
 def find_student_by_project_id(student_data, project_id):
     '''
     Поиск ученика, который выполнил проект.
