@@ -36,10 +36,16 @@ def find_student_by_project_id(student_data, project_id):
 
 def main():
     student_data = read_csv('student.csv')
-    command = input()
-    while command != 'СТОП':
-        project_id = int(command)
-        print(find_student_by_project_id(student_data, project_id))
+    while True:
         command = input()
+        if command == 'СТОП':
+            break
+        if command.isdigit():
+            project_id = int(command)
+            print(find_student_by_project_id(student_data, project_id))
+            command = input()
+        else:
+            print('Ввод не коректный')
+            command = input()
 
 main()
