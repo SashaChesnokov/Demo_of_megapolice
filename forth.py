@@ -18,6 +18,11 @@ def read_csv(file_path):
 
     return student_data
 
+def generate_login(student_data):
+    for student in student_data:
+        new_login = student['surname'] + '_' + student['name'][0] + student['patronymic'][0]
+        student['login'] = new_login
+    return student_data
 
-for i in read_csv('student.csv'):
+for i in generate_login(read_csv('student.csv')):
     print(i)
