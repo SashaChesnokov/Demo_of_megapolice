@@ -31,17 +31,17 @@ python first.py
 ```
 2. Для просмотра решения 2-го задания:
 ```bash
-python first.py
+python second.py
 ```
 3. Для просмотра решения 3-го задания:
 ```bash
-python first.py
+python third.py
 ```
 4. Для просмотра решения 4-го задания:
 ```bash
-python first.py
+python forth.py
 ```
 5. Для просмотра решения 5-го задания:
 ```bash
-python first.py
+python fifth.py
 ```
